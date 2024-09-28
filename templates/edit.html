@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="edit-container">
+        <h1>Edit Image</h1>
+        <img id="uploadedImage" src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+
+        <form method="post">
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="operations" value="blur"> Blur</label>
+                <label><input type="checkbox" name="operations" value="emboss"> Emboss</label>
+                <label><input type="checkbox" name="operations" value="contour"> Contour</label>
+                <label><input type="checkbox" name="operations" value="smooth"> Smooth Edge</label>
+                <label><input type="checkbox" name="operations" value="mirror"> Mirror Image</label>
+                <label><input type="checkbox" name="operations" value="sharpen"> Sharpen</label>
+                <label><input type="checkbox" name="operations" value="solarize"> Solarize</label>
+                <label><input type="checkbox" name="operations" value="grayscale"> Grayscale</label>
+                <label><input type="checkbox" name="operations" value="crop"> Crop</label>
+                <label><input type="checkbox" name="operations" value="brightness" id="brightnessCheck"> Brightness</label>
+                <input type="range" id="brightnessSlider" name="brightness_value" min="0" max="2" step="0.1" style="display:none;" value="1">
+                <label><input type="checkbox" name="operations" value="rotate" id="rotateCheck"> Rotate</label>
+                <select id="rotateSelect" name="rotate_value" style="display:none;">
+                    <option value="0">0°</option>
+                    <option value="90">90°</option>
+                    <option value="180">180°</option>
+                    <option value="270">270°</option>
+                </select>
+            </div>
+            <button type="submit" class="apply-button">Apply</button>
+            <a href="{{ url_for('download_image', filename=filename) }}" class="download-button">Download Edited Image</a>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#brightnessCheck').change(function() {
+                $('#brightnessSlider').toggle(this.checked);
+            });
+
+            $('#rotateCheck').change(function() {
+                $('#rotateSelect').toggle(this.checked);
+            });
+        });
+    </script>
+</body>
+</html>
