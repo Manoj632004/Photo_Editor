@@ -1,5 +1,5 @@
 # Photo_Editor 
-(check out the web app implementation in different branch)
+(check out the web app implementation in the other branch)
 
 
 Python libraries used for the application are tkinter and Pillow 
