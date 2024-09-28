@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container, .edit-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+input[type="file"] {
+    margin: 20px 0;
+}
+
+.upload-button, .apply-button, .download-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover, .apply-button:hover, .download-button:hover {
+    background-color: #218838;
+}
+
+.checkbox-group {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.checkbox-group label {
+    display: block;
+    margin: 5px 0;
+}
